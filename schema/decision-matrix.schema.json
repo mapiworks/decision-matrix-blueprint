@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/mapiworks/decision-matrix-blueprint/main/schema/decision-matrix.schema.json",
+  "title": "Decision Matrix",
+  "description": "A weighted comparison of options against explicit criteria.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "question", "criteria", "options", "scores"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$" },
+    "question": { "type": "string", "minLength": 5, "maxLength": 500 },
+    "notes": { "type": "string", "maxLength": 5000 },
+    "criteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/criterion" }
+    },
+    "options": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "$ref": "#/$defs/option" }
+    },
+    "scores": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/score" }
+    },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source" }
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+    "criterion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "weight"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "label": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "weight": { "type": "number", "minimum": 0, "maximum": 1 },
+        "description": { "type": "string", "maxLength": 500 }
+      }
+    },
+    "option": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "label": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "description": { "type": "string", "maxLength": 1000 }
+      }
+    },
+    "score": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["optionId", "criterionId", "value"],
+      "properties": {
+        "optionId": { "$ref": "#/$defs/id" },
+        "criterionId": { "$ref": "#/$defs/id" },
+        "value": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "reasoning": { "type": "string", "maxLength": 1000 }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "url"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "accessed": { "type": "string", "format": "date" }
+      }
+    }
+  }
+}

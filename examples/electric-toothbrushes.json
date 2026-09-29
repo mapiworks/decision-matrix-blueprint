@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0",
+  "id": "electric-toothbrush-daily-use",
+  "question": "Which electric toothbrush best fits my daily routine?",
+  "notes": "Illustrative example, not dental advice. Confirm product availability, compatibility, and professional guidance for your situation.",
+  "criteria": [
+    { "id": "cleaning-feel", "label": "Cleaning experience", "weight": 0.35 },
+    { "id": "replacement-cost", "label": "Replacement cost", "weight": 0.2 },
+    { "id": "battery-and-charging", "label": "Battery and charging", "weight": 0.15 },
+    { "id": "comfort-and-noise", "label": "Comfort and noise", "weight": 0.2 },
+    { "id": "smart-features", "label": "Smart features", "weight": 0.1 }
+  ],
+  "options": [
+    { "id": "oral-b-io", "label": "Oral-B iO", "description": "A premium oscillating-rotating brush with a guided app experience." },
+    { "id": "philips-sonicare", "label": "Philips Sonicare", "description": "A sonic brush family with a broad range of models and accessories." },
+    { "id": "simpler-sonic-brush", "label": "Simpler sonic brush", "description": "A lower-cost option with fewer connected features and simpler maintenance." }
+  ],
+  "scores": [
+    { "optionId": "oral-b-io", "criterionId": "cleaning-feel", "value": 5 },
+    { "optionId": "oral-b-io", "criterionId": "replacement-cost", "value": 2 },
+    { "optionId": "oral-b-io", "criterionId": "battery-and-charging", "value": 4 },
+    { "optionId": "oral-b-io", "criterionId": "comfort-and-noise", "value": 3 },
+    { "optionId": "oral-b-io", "criterionId": "smart-features", "value": 5 },
+    { "optionId": "philips-sonicare", "criterionId": "cleaning-feel", "value": 4 },
+    { "optionId": "philips-sonicare", "criterionId": "replacement-cost", "value": 3 },
+    { "optionId": "philips-sonicare", "criterionId": "battery-and-charging", "value": 5 },
+    { "optionId": "philips-sonicare", "criterionId": "comfort-and-noise", "value": 4 },
+    { "optionId": "philips-sonicare", "criterionId": "smart-features", "value": 3 },
+    { "optionId": "simpler-sonic-brush", "criterionId": "cleaning-feel", "value": 3 },
+    { "optionId": "simpler-sonic-brush", "criterionId": "replacement-cost", "value": 5 },
+    { "optionId": "simpler-sonic-brush", "criterionId": "battery-and-charging", "value": 3 },
+    { "optionId": "simpler-sonic-brush", "criterionId": "comfort-and-noise", "value": 4 },
+    { "optionId": "simpler-sonic-brush", "criterionId": "smart-features", "value": 1 }
+  ],
+  "sources": [
+    { "title": "Octo Thinks electric-toothbrush guide", "url": "https://www.octothinks.com/decide/which-electric-toothbrush-should-i-buy" }
+  ]
+}

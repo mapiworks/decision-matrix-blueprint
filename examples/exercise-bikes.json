@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0",
+  "id": "exercise-bike-home-workouts",
+  "question": "Which exercise bike best fits my home workouts?",
+  "notes": "Illustrative scores only. Replace them with measurements and priorities that fit your space, budget, and training habits.",
+  "criteria": [
+    { "id": "training-experience", "label": "Training experience", "weight": 0.3, "description": "Quality of classes, coaching, and workout feedback." },
+    { "id": "equipment-quality", "label": "Equipment quality", "weight": 0.25, "description": "Ride feel, adjustability, and build quality." },
+    { "id": "total-cost", "label": "Total cost", "weight": 0.2, "description": "Purchase price plus recurring membership or service costs." },
+    { "id": "space-and-noise", "label": "Space and noise", "weight": 0.15, "description": "Fit for the room and suitability for shared living spaces." },
+    { "id": "flexibility", "label": "Workout flexibility", "weight": 0.1, "description": "Ability to train without a proprietary subscription." }
+  ],
+  "options": [
+    { "id": "peloton-bike", "label": "Peloton Bike", "description": "A polished connected-bike ecosystem with a large class library." },
+    { "id": "echelon-ex3", "label": "Echelon EX-3", "description": "A connected bike with adjustable geometry and subscription-based classes." },
+    { "id": "schwinn-ic4", "label": "Schwinn IC4", "description": "A quieter indoor bike that can be used with several training services." }
+  ],
+  "scores": [
+    { "optionId": "peloton-bike", "criterionId": "training-experience", "value": 5, "reasoning": "Strongest integrated coaching experience in this illustrative comparison." },
+    { "optionId": "peloton-bike", "criterionId": "equipment-quality", "value": 5 },
+    { "optionId": "peloton-bike", "criterionId": "total-cost", "value": 2 },
+    { "optionId": "peloton-bike", "criterionId": "space-and-noise", "value": 4 },
+    { "optionId": "peloton-bike", "criterionId": "flexibility", "value": 2 },
+    { "optionId": "echelon-ex3", "criterionId": "training-experience", "value": 4 },
+    { "optionId": "echelon-ex3", "criterionId": "equipment-quality", "value": 4 },
+    { "optionId": "echelon-ex3", "criterionId": "total-cost", "value": 3 },
+    { "optionId": "echelon-ex3", "criterionId": "space-and-noise", "value": 4 },
+    { "optionId": "echelon-ex3", "criterionId": "flexibility", "value": 3 },
+    { "optionId": "schwinn-ic4", "criterionId": "training-experience", "value": 3 },
+    { "optionId": "schwinn-ic4", "criterionId": "equipment-quality", "value": 4 },
+    { "optionId": "schwinn-ic4", "criterionId": "total-cost", "value": 4 },
+    { "optionId": "schwinn-ic4", "criterionId": "space-and-noise", "value": 4 },
+    { "optionId": "schwinn-ic4", "criterionId": "flexibility", "value": 5 }
+  ],
+  "sources": [
+    { "title": "Octo Thinks exercise-bike guide", "url": "https://www.octothinks.com/decide/which-exercise-bike-should-i-buy" }
+  ]
+}
