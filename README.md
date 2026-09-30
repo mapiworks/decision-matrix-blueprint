@@ -1,5 +1,7 @@
 # Decision Matrix Starter
 
+[![Validate](https://github.com/mapiworks/decision-matrix-blueprint/actions/workflows/validate.yml/badge.svg)](https://github.com/mapiworks/decision-matrix-blueprint/actions/workflows/validate.yml)
+
 A small, tool-agnostic format for making weighted decisions explicit, reviewable, and reproducible.
 
 This starter contains:

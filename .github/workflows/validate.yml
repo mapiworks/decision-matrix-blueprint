@@ -1,0 +1,51 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate JSON examples and matrix completeness
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+
+          const schema = JSON.parse(fs.readFileSync('schema/decision-matrix.schema.json', 'utf8'));
+          if (schema.$id !== 'https://raw.githubusercontent.com/mapiworks/decision-matrix-blueprint/main/schema/decision-matrix.schema.json') {
+            throw new Error('schema $id must point at the published main-branch schema');
+          }
+
+          for (const name of fs.readdirSync('examples').filter((file) => file.endsWith('.json'))) {
+            const file = path.join('examples', name);
+            const decision = JSON.parse(fs.readFileSync(file, 'utf8'));
+            if (decision.schemaVersion !== '1.0') throw new Error(`${file}: unsupported schemaVersion`);
+
+            const weightTotal = decision.criteria.reduce((sum, criterion) => sum + criterion.weight, 0);
+            if (Math.abs(weightTotal - 1) > 1e-9) throw new Error(`${file}: weights must sum to 1`);
+
+            const expected = new Set(decision.options.flatMap((option) =>
+              decision.criteria.map((criterion) => `${option.id}:${criterion.id}`)));
+            const actual = new Set(decision.scores.map((score) => `${score.optionId}:${score.criterionId}`));
+            if (expected.size !== actual.size || [...expected].some((key) => !actual.has(key))) {
+              throw new Error(`${file}: score matrix is incomplete or has unexpected pairs`);
+            }
+            if (decision.scores.some((score) => !Number.isInteger(score.value) || score.value < 1 || score.value > 5)) {
+              throw new Error(`${file}: scores must be integers from 1 through 5`);
+            }
+            console.log(`${file}: valid (${actual.size} score pairs)`);
+          }
+          NODE
+
+      - name: Scan tracked files for common credentials
+        run: ./scripts/secret-scan.sh
