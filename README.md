@@ -9,6 +9,7 @@ This starter contains:
 - a JSON Schema for decisions, options, criteria, and scores;
 - two realistic examples (exercise bikes and electric toothbrushes);
 - a scoring guide that explains normalization, weighting, and uncertainty;
+- an installable [Octo Thinks Decision Matrix skill](skills/octo-thinks-decision-matrix/SKILL.md) for agents that support `SKILL.md` packages;
 - contribution and safety guidance for keeping examples useful and privacy-safe.
 
 It is intentionally independent of any application. You can edit the JSON by hand, generate it from a form, or use it as an interchange format between tools.
@@ -22,6 +23,12 @@ It is intentionally independent of any application. You can edit the JSON by han
 5. Adjust criterion weights so they reflect your priorities, then review the result alongside the notes and citations.
 
 The schema does not claim that a weighted score is an objective truth. It is a transparent aid for comparing trade-offs; the final decision remains yours.
+
+## Agent skill
+
+[`skills/octo-thinks-decision-matrix`](skills/octo-thinks-decision-matrix/) is a read-only, local-first agent skill. It teaches an agent how to frame a decision, choose independent criteria, calculate a weighted matrix, test sensitivity, and communicate uncertainty. It does not require an MCP server, hosting, an account, or storage of a user's decision data.
+
+The skill intentionally does not perform current-fact research unless the user explicitly requests it. Product facts, prices, availability, policies, and high-stakes claims still need verification from appropriate primary sources.
 
 ## Format at a glance
 

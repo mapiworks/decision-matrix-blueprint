@@ -1,0 +1,4 @@
+interface:
+  display_name: "Octo Thinks Decision Matrix"
+  short_description: "Make choices with transparent weighted matrices"
+  default_prompt: "Use $octo-thinks-decision-matrix to compare my options with a transparent weighted matrix."
