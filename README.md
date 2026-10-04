@@ -30,6 +30,19 @@ The schema does not claim that a weighted score is an objective truth. It is a t
 
 The skill intentionally does not perform current-fact research unless the user explicitly requests it. Product facts, prices, availability, policies, and high-stakes claims still need verification from appropriate primary sources.
 
+### Install
+
+For Codex, ask the built-in installer to use the versioned skill directory:
+
+```text
+$skill-installer install https://github.com/mapiworks/decision-matrix-blueprint/tree/v1.1.0/skills/octo-thinks-decision-matrix
+```
+
+For any agent that supports the open `SKILL.md` format, copy the
+`skills/octo-thinks-decision-matrix` directory into that agent's skills
+location (commonly `.agents/skills/`). The skill is instruction-only: it does
+not include scripts, make network calls, or require credentials.
+
 ## Format at a glance
 
 ```json
